@@ -2,6 +2,7 @@
 datafile <- "summarySCC_PM25.rds"
 #Read file
 dataset <- readRDS(datafile)
+#Subset the data according to needs of question
 library(dplyr)
 subdata <- dataset %>%
         filter(fips == "24510") %>%
