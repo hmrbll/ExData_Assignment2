@@ -3,9 +3,9 @@ datafile <- "summarySCC_PM25.rds"
 #Read file
 dataset <- readRDS(datafile)
 #Subset the data according to needs of question
-subdata <- data.frame(Emissions = dataset$Emissions, year = dataset$year)
-#Aggregate total emission by each year
 library(dplyr)
+subdata <- select(dataset, Emissions, year)
+#Aggregate total emission by each year
 aggdata <- subdata %>%
         group_by(year) %>%
                 summarise(sum = sum(Emissions, na.rm = TRUE))
